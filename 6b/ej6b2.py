@@ -50,18 +50,21 @@ from typing import List
     
 def average_of_even_numbers(numbers):
     #Find the error and rewrite the correct code.
-    total = -1
-    count = 0
+    count= total = 0
     for num in numbers:
         if num % 2 == 0:
             total += num
-        count += 1
-    return total
+            count += 1
+            
+    if count != 0:
+        return total / count
+    else:
+        return 0
 
 
 # Si quieres probar tu código, descomenta las siguientes líneas y ejecuta el script
 # Si vols provar el teu codi, descomenta les línies següents i executa l'script
 
-# numbers = [2, 3, 4, 5, 6]
-# result = average_of_even_numbers(numbers)
-# print(result)
+numbers = [2, 3, 4, 5, 6]
+result = average_of_even_numbers(numbers)
+print(result)
