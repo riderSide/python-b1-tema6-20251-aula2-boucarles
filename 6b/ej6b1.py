@@ -60,16 +60,23 @@ Nota: Verifiqueu que el fitxer de logs s'hagi creat.
 """
 import logging
 
+
 def count_letters(names):
-    #Write your code here
-    pass
+    letters_count={}
+    for name in names:
+        for letter in name:
+            letters_count[letter] = letters_count.get(letter, 0) +1
+
+    return letters_count
 
 
 def create_log(names):
-    #Write your code here
-    pass
+    logging.basicConfig(level=logging.DEBUG, filename="production.log", force=True)
+
+    letters_count= count_letters(names)
+    logging.debug(f'Letter counts: {letters_count}')
 
 
 # Si quieres probar tu código, descomenta las siguientes líneas y ejecuta el script
 # Si vols provar el teu codi, descomenta les línies següents i executa l'script
-# create_log(["Juan", "Pedro", "Marta"])
+create_log(["Juan", "Pedro", "Marta"])
