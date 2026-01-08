@@ -70,9 +70,19 @@ from nltk.sentiment import SentimentIntensityAnalyzer
 nltk.download("vader_lexicon")
 
 def sentiment_analysis(text):
-    #Write your code here
-    pass
-
+    try:
+        analyzer = SentimentIntensityAnalyzer()
+        result = analyzer.polarity_scores(text)
+        score = result['compound']
+        if score > 0.05:
+            return "Positive"
+        elif score < -0.05:
+            return "Negative"
+        else:
+            return "Neutral"
+        
+    except Exception as e:
+        return f"Error al analizar el texto: {e}"
 
 # Si quieres probar tu código, descomenta las siguientes líneas y ejecuta el script
 # Si vols provar el teu codi, descomenta les línies següents i executa l'script
