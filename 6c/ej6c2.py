@@ -76,13 +76,24 @@ Exemple:
 
 
 def read_txt_file(path: str) -> str:
-    #Write your code here
-    pass
+    with open(path, "r", encoding="utf-8") as file:
+        txt= file.read()
+    return txt
 
 
 def words_counter(text: str, word: str) -> int:
-    #Write your code here
-    pass
+    count = 0
+
+    # convertim els textes a minuscules abans de fer la cerca
+    text= text.lower()
+    word= word.lower()
+
+    # comprovar si la paraula es troba dins el text
+    if word not in text:
+        return 0
+    
+    count= text.count(word)
+    return count
 
 
 # Si quieres probar tu código, descomenta las siguientes líneas y ejecuta el script
