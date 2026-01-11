@@ -86,16 +86,16 @@ Exemple:
 
 """
 import pandas as pd
-
+import pyarrow.parquet as pq
 
 def read_parquet_file(path: str) -> pd.DataFrame:
-    #Write your code here
-    pass
-
+    table= pq.read_table(path)
+    return table.to_pandas()
+    
 
 def calculate_amount_quanity(dataframe: pd.DataFrame):
-    #Write your code here
-    pass
+    dataframe["amount"]= dataframe["price"] * dataframe["units_sold"]
+    return dataframe
 
 
 # Si quieres probar tu código, descomenta las siguientes líneas y ejecuta el script
